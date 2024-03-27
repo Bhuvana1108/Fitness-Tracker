@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="images/icons8-fitness-50.png" />
+    <title>Fitness Tracker</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.css"
+      integrity="sha512-Z0kTB03S7BU+JFU0nw9mjSBcRnZm2Bvm0tzOX9/OuOuz01XQfOpa0w/N9u6Jf2f1OAdegdIPWZ9nIZZ+keEvBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      html {
+        background-color: #0093e9;
+        background-image: linear-gradient(
+          160deg,
+          #0093e9 0%,
+          #80d0c7 100%
+        ) !important;
+        background-repeat:repeat-y;
+      }
+    </style>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="header">
+      <nav>
+        <div id="head-image">
+          <span><img src="images/icons8-fitness-50.png" /></span>FitTrack
+        </div>
+        <div class="nav-links" id="navLinks">
+          <i class="fa fa-times close" onclick="hideMenu();"></i>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="workout.html">Workouts</a></li>
+            <li><a href="report.html">Reports</a></li>
+            <li><a href="progress.html">Progress</a></li>
+            <li><a href="login-page.html">Profile</a></li>
+            <li><a href="logout.html">Logout</a></li>
+          </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu();"></i>
+      </nav>
+    </div>
+
+    <header>
+      <h1 class="heading">Your Personal Fitness Journey</h1>
+    </header>
+
+    <main>
+      <div class="workout">
+        <section id="workout-log">
+          <h2>Let's Log Your Workout</h2>
+          <form id="workout-form">
+            <div>
+              <label for="workout-type">Workout Type:</label>
+              <select id="workout-type">
+                <option value="Cardio">Cardio</option>
+                <option value="strength-training">Strength Training</option>
+                <option value="yoga">Yoga</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="duration">Duration(minutes):</label>
+              <input type="number" id="duration" />
+            </div>
+            <div>
+              <label for="Workout Intensity">Workout Intensity:</label>
+              <input type="number" id="Intensity" name="Workout Intensity" />
+            </div>
+
+            <div>
+              <label for="Calories Burnt">Calories Burnt:</label>
+              <input type="number" id="Calories Burnt" name="Calories Burnt" />
+            </div>
+
+            <div>
+              <label for="Water Intake">Water Intake (litre):</label>
+              <input type="number" id="Water Intake" name="Water Intake" />
+            </div>
+            <input type="submit" value="Log Workout" />
+          </form>
+        </section>
+
+        <section id="meal-log">
+          <h2>What Did You Eat Today</h2>
+          <form id="workout-form">
+            <div>
+              <label for="meal-type">Meal Type:</label>
+              <select id="meal-type">
+                <option value="breakfast">Breakfast</option>
+                <option value="lunch">Lunch</option>
+                <option value="dinner">Dinner</option>
+                <option value="snack">Snack</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="food-items">Food Items:</label>
+              <textarea
+                id="food-items"
+                name="food-items"
+                rows="3"
+                cols="30"
+              ></textarea>
+            </div>
+
+            <div>
+              <label for="calories">Estimated Calories:</label>
+              <input type="number" id="calories" />
+            </div>
+
+            <div>
+              <label for="date">Date (YYYY-MM-DD):</label>
+              <input type="date" id="date" />
+            </div>
+
+            <input type="submit" value="Log Meal" />
+          </form>
+        </section>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="images/icons8-fitness-50.png" />
+    <title>Fitness Tracker</title>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.css"
+    integrity="sha512-Z0kTB03S7BU+JFU0nw9mjSBcRnZm2Bvm0tzOX9/OuOuz01XQfOpa0w/N9u6Jf2f1OAdegdIPWZ9nIZZ+keEvBw=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      html {
+        background-color: #0093e9;
+        background-image: linear-gradient(
+          160deg,
+          #0093e9 0%,
+          #80d0c7 100%
+        ) !important;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation menu-->
+    <div class="header">
+      <div id="head-image">
+        <span><img src="images/icons8-fitness-50.png" /></span>FitTrack
+      </div>
+      <nav id="navigation">
+        <a href="index.html">Home</a>
+        <a href="workout.html">Workouts</a>
+        <a href="#">Reports</a>
+        <a href="progress.html">Progress</a>
+        <a href="login-page.html">Profile</a>
+      </nav>
+    </div>
+
+    <!-- SignUp Page -->
+    <div class="login-page">
+      <form id="signup-form" method="post">
+        <h1>Create an Account</h1>
+        <div class="form-Control">
+          <label for="firstname">First Name:</label>
+          <input
+            type="text"
+            id="firstname"
+            placeholder="Enter first Name"
+            required
+          />
+        </div>
+        <div class="form-Control">
+          <label for="lastname">Last Name:</label>
+          <input
+            type="text"
+            id="lastname"
+            placeholder="Enter last Name"
+            required
+          />
+        </div>
+
+        <div class="form-Control">
+          <label for="gender">Gender:</label>
+          <select name="gender" id="gender" required>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-Control">
+          <label for="dob">Date of Birth:</label>
+          <input type="date" id="dob" required />
+        </div>
+        <div class="form-Control">
+          <label for="email">Email:</label>
+          <input type="email" id="email" placeholder="Enter email" required />
+        </div>
+
+        <div class="form-Control">
+          <label for="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter password"
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+            required
+          />
+        </div>
+
+        <button id="login-button">Sign Up</button>
+
+        <p>
+          Already a member?
+          <span> <a href="login-page.html">Login Now</a></span>
+        </p>
+      </form>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

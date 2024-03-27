@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="images/icons8-fitness-50.png" />
+  <title>Fitness Tracker</title>
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.css"
+  integrity="sha512-Z0kTB03S7BU+JFU0nw9mjSBcRnZm2Bvm0tzOX9/OuOuz01XQfOpa0w/N9u6Jf2f1OAdegdIPWZ9nIZZ+keEvBw=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', Arial, sans-serif;
+      background-color: #0093E9;
+      color: white;
+    }
+
+    .navbar {
+      background-color: burlywood;
+      padding: 15px;
+      text-align: center;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+      margin: 0 10px;
+      font-size: 18px;
+    }
+
+    .logout-container {
+      text-align: center;
+      padding: 50px;
+      margin-top: 50px; /* Adjust margin as needed */
+    }
+
+    h1 {
+      color: #000;
+    }
+
+    a {
+      color: burlywood;
+      text-decoration: underline;
+    }
+
+    a:hover {
+      color: #555;
+    }
+
+    #logout-button {
+      padding: 10px;
+      background-color: burlywood;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    #logout-button:hover {
+      background-color: #555;
+    }
+
+    /* Media queries for responsiveness */
+    @media screen and (max-width: 600px) {
+      .navbar a {
+        font-size: 16px;
+      }
+
+      #logout-button {
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  
+
+  <!-- Logout content -->
+  <div class="logout-container">
+    <h1 id="logout"></h1>
+    <p id="logoutMessage"></p>
+    <!-- <button id="logout-button">Logout</button> -->
+    <script>
+      // Check if the user is logged in
+      if (localStorage.getItem('isLoggedIn') === 'true') {
+        // Update local storage to indicate the user is not logged in
+        // localStorage.setItem('isLoggedIn', 'false');
+        // Display a logout message
+        document.getElementById('logoutMessage').innerText = "You have been successfully logged out.";
+      } else {
+        // Display a message indicating the user was not logged in
+        document.getElementById('logoutMessage').innerText = `Logout From the FitTrack ! 
+        please Login First 
+            and 
+        Track your Fitness`;
+      }
+
+      const Logout = document.getElementById("logout");
+
+      // Redirect to the login page after 3 seconds
+      setTimeout(() => {
+        // alert("Logout from FitTrack");
+        window.location.href = 'login-page.html';
+      }, 1000);
+
+    </script>
+  </div>
+</body>
+</html>

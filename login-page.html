@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="images/icons8-fitness-50.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fitness Tracker</title>
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.css"
+  integrity="sha512-Z0kTB03S7BU+JFU0nw9mjSBcRnZm2Bvm0tzOX9/OuOuz01XQfOpa0w/N9u6Jf2f1OAdegdIPWZ9nIZZ+keEvBw=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+  <style>
+    html{
+      background-color: #0093E9;
+      background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%) !important;
+    }
+  </style>
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <!-- Navigation menu-->
+  <div class="header">
+    <nav>
+      <div id="head-image">
+        <span><img src="images/icons8-fitness-50.png" /></span>FitTrack
+      </div>
+      <div class="nav-links" id="navLinks">
+        <i class="fa fa-times close" onclick="hideMenu();"></i>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="workout.html">Workouts</a></li>
+          <li><a href="report.html">Reports</a></li>
+          <li><a href="progress.html">Progress</a></li>
+          <li><a href="login-page.html">Profile</a></li>
+          <li><a href="logout.html">Logout</a></li>
+        </ul>
+      </div>
+      <i class="fa fa-bars" onclick="showMenu();"></i>
+    </nav>
+  </div>
+  
+    <!-- Login page-->
+    <div class="login-page" id="login-page">
+      <h1>Login</h1>
+      <form id="input-form" method="post">
+     <div class="form-Control"><label for="email">Email :</label>
+      <input type="email" id="email" placeholder="Enter email" required></div>
+     <div class="form-Control"><label for="password">Password:</label>
+      <input type="password" id="password"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" placeholder="Enter password" required></div>
+     <button id="login-button">Log In</button>
+      <p>Don't have an account? <span> <a href="signup-page.html" >Sign Up</span></a></p>
+    </form>
+
+      </div>
+  
+  <script src="script.js">
+    const logout = document.getElementById("logout");
+    logout.addEventListener((e)=>{
+     e.innerText = "Logout from FitTrack"
+    })
+  </script>
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="images/icons8-fitness-50.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fitness Tracker</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.css"
+      integrity="sha512-Z0kTB03S7BU+JFU0nw9mjSBcRnZm2Bvm0tzOX9/OuOuz01XQfOpa0w/N9u6Jf2f1OAdegdIPWZ9nIZZ+keEvBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Roboto", Arial, sans-serif;
+        background-color: rgb(123, 108, 87);
+        color: white;
+        height: 100%;
+      }
+
+      #report-section {
+        padding: 20px;
+        text-align: center;
+        opacity: 1;
+        transition: opacity 0.5s ease-in-out;
+      }
+
+      #head {
+        color: rgb(217, 153, 42);
+      }
+
+      #list {
+        list-style: none;
+        padding: 0;
+        margin: 10px 0;
+        color: 3px white;
+        font-weight: 45px;
+        color: white;
+      }
+
+      #list li {
+        margin-bottom: 8px;
+        font-size: 20px;
+      }
+
+      button {
+        padding: 10px;
+        background-color: burlywood;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      .card {
+        border: 1px solid ghostwhite;
+        padding: 20px;
+        margin: 10px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+        opacity: 1;
+      }
+      #card-head {
+        font-weight: 900;
+        font-size: 35px;
+        color: rgb(196, 168, 28);
+      }
+    </style>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="header">
+      <nav>
+        <div id="head-image">
+          <span><img src="images/icons8-fitness-50.png" /></span>FitTrack
+        </div>
+        <div class="nav-links" id="navLinks">
+          <i class="fa fa-times close" onclick="hideMenu();"></i>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="workout.html">Workouts</a></li>
+            <li><a href="report.html">Reports</a></li>
+            <li><a href="progress.html">Progress</a></li>
+            <li><a href="login-page.html">Profile</a></li>
+            <li><a href="logout.html">Logout</a></li>
+          </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu();"></i>
+      </nav>
+    </div>
+
+    <div id="report-section">
+      <h2 id="head">Your Fitness</h2>
+
+      <div class="card">
+        <h3 id="card-head">Recent Fitness Activity</h3>
+        <ul id="list">
+          <li>Workout Type : Cardio</li>
+          <li>Duration : 30 minutes</li>
+          <li>Meal : Breakfast</li>
+          <li>Water Intake : 2 liters</li>
+          <li>Calories Burnt : 200</li>
+          <li>Workout Intensity : Moderate</li>
+          <li>Estimate Calories : 300</li>
+          <li>Food Items: Oatmeal, Banana, Almonds</li>
+        </ul>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

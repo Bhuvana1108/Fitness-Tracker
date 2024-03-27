@@ -1,0 +1,227 @@
+<!-- progress.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="images/icons8-fitness-50.png" />
+    <title>Fitness Tracker</title>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.css"
+    integrity="sha512-Z0kTB03S7BU+JFU0nw9mjSBcRnZm2Bvm0tzOX9/OuOuz01XQfOpa0w/N9u6Jf2f1OAdegdIPWZ9nIZZ+keEvBw=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+        font-family: Arial, sans-serif;
+        background-color: rgb(123, 108, 87);
+        height: 100%;
+      }
+
+      #navigation a:hover {
+        background-color: #555;
+        color: whitesmoke;
+        background-color: #000;
+      }
+
+      canvas {
+        display: block;
+        margin: 20px auto; /* Center the chart */
+        max-width: 90%; /* Set maximum width */
+        height: 380px; /* Allow the height to adjust */
+      }
+
+      @media only screen and (min-width: 768px) {
+        canvas {
+          max-width: 70%;
+        }
+      }
+
+      @media only screen and (min-width: 1200px) {
+        canvas {
+          max-width: 60%;
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="header">
+      <nav>
+        <div id="head-image">
+          <span><img src="images/icons8-fitness-50.png" /></span>FitTrack
+        </div>
+        <div class="nav-links" id="navLinks">
+          <i class="fa fa-times close" onclick="hideMenu();"></i>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="workout.html">Workouts</a></li>
+            <li><a href="report.html">Reports</a></li>
+            <li><a href="progress.html">Progress</a></li>
+            <li><a href="login-page.html">Profile</a></li>
+            <li><a href="logout.html">Logout</a></li>
+          </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu();"></i>
+      </nav>
+    </div>
+    <canvas id="myChart" height="300"></canvas>
+    <script>
+      // Function to create the initial chart
+      function createInitialChart() {
+        const initialData = {
+          labels: [
+            "Workout-Type",
+            "Duration",
+            "Workout-Intensity",
+            "Calories-Burnt",
+            "Water-Intake",
+            "Meal-Type",
+            "Food-Item",
+            "Estimate-Calories",
+          ],
+          datasets: [
+            {
+              data: ["Cardio", 15, 30, 2, 18, 1, 1, 18, "Banana-Sheck"],
+              backgroundColor: [
+                "rgba(255, 99, 132, 0.2)",
+                "rgba(54, 162, 235, 0.2)",
+                "rgba(255, 206, 86, 0.2)",
+                "rgba(75, 192, 192, 0.2)",
+                "rgba(153, 102, 255, 0.2)",
+                "rgba(255, 159, 64, 0.2)",
+                "rgba(255, 99, 132, 0.2)",
+                "rgba(54, 162, 235, 0.2)",
+              ],
+              borderColor: [
+                "rgba(255, 99, 132, 1)",
+                "rgba(54, 162, 235, 1)",
+                "rgba(255, 206, 86, 1)",
+                "rgba(75, 192, 192, 1)",
+                "rgba(153, 102, 255, 1)",
+                "rgba(255, 159, 64, 1)",
+                "rgba(255, 99, 132, 1)",
+                "rgba(54, 162, 235, 1)",
+              ],
+              borderWidth: 2,
+            },
+          ],
+        };
+
+        const ctx = document.getElementById("myChart").getContext("2d");
+        return new Chart(ctx, {
+          type: "pie",
+          data: initialData,
+          options: {
+            plugins: {
+              legend: {
+                position: "top",
+                labels: {
+                  color: "black",
+                },
+              },
+            },
+            responsive: true,
+          },
+        });
+      }
+
+      // Create the initial chart
+      const myChart = createInitialChart();
+
+      // Function to update the chart with new data
+      function updateChart(newData) {
+        myChart.data.datasets[0].initialData = newData;
+        myChart.update();
+      }
+
+      // Function to save workout data to local storage
+      function saveWorkoutDataToLocalStorage(data) {
+        localStorage.setItem("workoutData", JSON.stringify(data));
+      }
+
+      // Function to get workout data from local storage
+      function getWorkoutDataFromLocalStorage() {
+        const storedData = localStorage.getItem("workoutData");
+        return storedData ? JSON.parse(storedData) : null;
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Event listener for workout form submission
+        const workoutForm = document.getElementById("workout-form");
+        workoutForm.addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          // Extract data from the form
+          const workoutType = document.getElementById("workout-type").value;
+          const duration = parseInt(document.getElementById("duration").value);
+          const intensity = parseInt(
+            document.getElementById("Intensity").value
+          );
+          const caloriesBurnt = parseInt(
+            document.getElementById("Calories Burnt").value
+          );
+          const waterIntake = parseInt(
+            document.getElementById("Water Intake").value
+          );
+
+          // Get current chart data
+          const currentData = myChart.data.datasets[0].data;
+
+          // Update the chart with new workout data
+          updateChart([
+            workoutType,
+            duration,
+            intensity,
+            caloriesBurnt,
+            waterIntake,
+            currentData[5], // Meal-Type
+            currentData[6], // Food-Item
+            currentData[7], // Estimate-Calories
+          ]);
+
+          // Save workout data to local storage
+          saveWorkoutDataToLocalStorage([
+            workoutType,
+            duration,
+            intensity,
+            caloriesBurnt,
+            waterIntake,
+          ]);
+        });
+
+        // Event listener for meal form submission
+        const mealForm = document.getElementById("meal-form");
+        mealForm.addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          // Extract data from the form
+          const mealType = document.getElementById("meal-type").value;
+          const foodItems = document.getElementById("food-items").value;
+          const calories = parseInt(document.getElementById("calories").value);
+
+          // Get current chart data
+          const currentData = myChart.data.datasets[0].data;
+
+          // Update the chart with new meal data
+          updateChart([
+            currentData[0], // Workout-Type
+            currentData[1], // Duration
+            currentData[2], // Workout-Intensity
+            currentData[3], // Calories-Burnt
+            currentData[4], // Water-Intake
+            mealType,
+            foodItems,
+            calories,
+          ]);
+        });
+      });
+    </script>
+  </body>
+</html>

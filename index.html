@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="images/icons8-fitness-50.png" />
+    <title>Fitness Tracker</title>
+    
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.css"
+      integrity="sha512-Z0kTB03S7BU+JFU0nw9mjSBcRnZm2Bvm0tzOX9/OuOuz01XQfOpa0w/N9u6Jf2f1OAdegdIPWZ9nIZZ+keEvBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <!-- Navigation menu-->
+    <div class="header">
+      <nav>
+        <div id="head-image">
+          <span><img src="images/icons8-fitness-50.png" /></span>FitTrack
+        </div>
+        <div class="nav-links" id="navLinks">
+          <i class="fa fa-times close" onclick="hideMenu();"></i>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="workout.html">Workouts</a></li>
+            <li><a href="report.html">Reports</a></li>
+            <li><a href="progress.html">Progress</a></li>
+            <li><a href="login-page.html">Profile</a></li>
+            <li><a href="logout.html">Logout</a></li>
+          </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu();"></i>
+      </nav>
+    </div>
+
+    <!--Home page-->
+
+    <div class="home-page">
+      <h1>Build Perfect Body Shape for Good and Healthy Life.</h1>
+      <button id="home-button">Start Today</button>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
